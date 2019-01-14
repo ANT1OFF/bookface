@@ -1,6 +1,6 @@
 # Welcome to bookface, a social website for the 15th century
 
-This site is meant as an educational tool for learning to set up and manage 'big web' applications. The code is not meant to run in production. It is meant to let aspiring sysadmins experience several fault-scenarios so they can improve their skills. 
+This site is meant as an educational tool for learning to set up and manage 'big web' applications. The code is not meant to run in production. It is meant to let aspiring sysadmins experience several fault-scenarios so they can improve their skills.
 
 # Installing dependencies (Assumes Ubuntu 14.04)
 
@@ -22,7 +22,7 @@ Log into the database and set up the database with the correct permissions.
 mysql -u root -p
 ```
 
-Inside the database, create the databse and set the permissions:
+Inside the database,    create the databse and set the permissions:
 
 ```
 create database bookface;
