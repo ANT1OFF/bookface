@@ -16,7 +16,7 @@ $link = mysqli_connect("$dbhost:$dbport", $dbuser,$dbpassw );
 			echo "Correct database found<br>\n";
 			$img = mysqli_real_escape_string($link, file_get_contents($image));
 			echo "$img</br>";
-			$fileimg = mysqli_real_escape_string($link, file_get_contents('plot.png'));
+		#	$fileimg = mysqli_real_escape_string($link, file_get_contents('plot.png'));
 			$result = mysqli_query($link, "insert into user (userID,name,picture,status,posts,comments,lastPostDate,createDate) values(NULL,'$username','$img','',0,0,NULL,NULL );");
 #			echo "Result: " . mysqli_error() . "<br>\n";
 			if ( ! mysqli_error($link)){
