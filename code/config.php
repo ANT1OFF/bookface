@@ -1,9 +1,10 @@
 <?php
-$dbhost = "192.168.128.87";
+$dbhost = getenv("BF_DB_HOST");
 $dbport = "3306";
-$db = "bookface";
-$dbuser = "bookfaceuser";
-$dbpassw = 'erlend';
-$webhost = '10.212.136.137';
+$db = getenv("BF_DB");
+$dbuser = getenv("BF_USER");
+$dbpassw = getenv("BF_PASSWORD");
+$webhost = getenv("BF_ENTRY_IP");
 $weburl = 'http://' . $webhost ;
+
 ?>

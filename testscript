@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+/usr/bin/curl -o /tmp/install-docker.sh https://get.docker.com
+chmod +x /tmp/install-docker.sh
+/tmp/install-docker.sh
+/usr/sbin/usermod -G docker ubuntu
+ssh-keyscan github.com >>~/.ssh/known_hosts
+git clone https://github.com/ANT1OFF/bookface.git
+cd /home/ubuntu/bookface
+docker build -t www .
+docker run -d -p 8080:80 www
