@@ -6,5 +6,4 @@ $dbuser = getenv("BF_USER");
 $dbpassw = getenv("BF_PASSWORD");
 $webhost = getenv("BF_ENTRY_IP");
 $weburl = 'http://' . $webhost ;
-
 ?>
