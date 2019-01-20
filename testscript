@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 /usr/bin/curl -o /tmp/install-docker.sh https://get.docker.com
 chmod +x /tmp/install-docker.sh
 /tmp/install-docker.sh
