@@ -9,7 +9,7 @@ $link = mysqli_connect("$dbhost:$dbport", $dbuser,$dbpassw );
     	# echo "Connection successful!\n<br>";
     	$bfdb = mysqli_select_db($link,$db);
     	if ( !$bfdb ){
-				echo "Cannot use $db: " . mysqli_error() ."<br>";
+				echo "Cannot use $db: " . mysqli_error($link) ."<br>";
     	} else {
 		#	echo "Correct database found<br>\n";
 	    if ( isset( $_GET['nomemcache']) ){
@@ -28,13 +28,13 @@ $link = mysqli_connect("$dbhost:$dbport", $dbuser,$dbpassw );
 			$result = mysqli_query($link, "insert into posts (text,userID,postDate) values('$post','$user',now() );");
 			if ( isset($memcache_enabled) and $memcache_enabled == 1 and $memcache ){
 				$memcache->delete("user_list_for_front_page");
-				$memcache->delete("posts_by_$user");	
+				$memcache->delete("posts_by_$user");
 			}
-			 if ( ! mysqli_error()){
+			 if ( ! mysqli_error($link)){
 			  echo "OK";
 			} else {
-				mysqli_error();
-			}	
+				mysqli_error($link);
+			}
 		}
 	}
 	?>
