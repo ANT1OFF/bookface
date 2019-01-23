@@ -13,9 +13,9 @@
 	if ($link){
 	    $bfdb = mysqli_select_db($link,$db);
 	    if ( !$bfdb ){
-		echo "Cannot use $db: " . mysqli_error() ."<br>";
+		echo "Cannot use $db: " . mysqli_error($link) ."<br>";
 	    } else {
-		$result = mysqli_query("show tables;");
+		$result = mysqli_query($link,"show tables;");
 		$row = mysqli_fetch_row($result);
 		if ( $row ){
 		    echo "Tables are created, proceed to index.php<br>\n";
