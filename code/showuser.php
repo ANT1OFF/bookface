@@ -100,7 +100,7 @@
 						$table .= "</table>\n<table class=commentrow>\n";
 						foreach ( $comments_on_post as $cres ){
 								$users = mysqli_query($link, "select name from user where userID = $cres[userID]");
-								$ures = mysqli_fetch_array($link, $users);
+								$ures = mysqli_fetch_array($users);
 								$table .= "<tr  ><td class=commentpost >" . $cres['postDate'] . "</td><td><a href='/showuser.php?user=" . $cres['userID']. "'><img src='/showimage.php?user=".$cres['userID'] ."'></a></td><td><b><a href='/showuser.php?user=" . $cres['userID']. "'>" . $ures['name'] . ": </a></b></td><td>" . $cres['text'] . "</td></tr>";
 
 						}
