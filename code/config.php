@@ -1,15 +1,9 @@
 <?php
-$dbhost = getenv("BF_DB_HOST");
+$dbhost = "192.168.128.138";
 $dbport = "3306";
-$db = getenv("BF_DB");
-$dbuser = getenv("BF_USER");
-$dbpassw = getenv("BF_PASSWORD");
-$webhost = getenv("BF_ENTRY_IP");
+$db = "bookface";
+$dbuser = "bookfaceuser";
+$dbpassw = 'erlend';
+$webhost = '10.212.136.137';
 $weburl = 'http://' . $webhost ;
-$memcache_enabled = 0;
-if ( getenv("BF_MEMCACHE_SERVER")){
-   $memcache_enabled_pictures = 1;
-   $memcache_server = getenv("BF_MEMCACHE_SERVER");
-   $memcache_enabled = 1;
-}
 ?>
