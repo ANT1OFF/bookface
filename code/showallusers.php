@@ -5,12 +5,12 @@
 <?php
 	$user = $_GET['user'];
 include_once "config.php";
-	$link = mysqli_connect($host, 'bfuser', 'bfuserpassword');
+	$link = mysqli_connect($dbhost, $dbuser, $dbpassw);
 	if ($link){
     #	echo "Connection successful!\n<br>";
     	$bfdb = mysqli_select_db($link,$db);
     	if ( !$bfdb ){
-				echo "Cannot use $db: " . mysqli_error() ."<br>";
+				echo "Cannot use $db: " . mysqli_error($link) ."<br>";
     	} else {
 	#		echo "Correct database found<br>\n";
 			$result = mysqli_query($link, "select userID,name,status,posts,comments from user");
@@ -23,7 +23,7 @@ include_once "config.php";
 				echo "</tr></a>\n";
 			}
 			echo "</table>\n";
-			
+
 		}
 	}
 
