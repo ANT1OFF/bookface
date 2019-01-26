@@ -7,13 +7,17 @@ RUN apt-get update && \
     apt-get install -y \
         zlib1g-dev
 
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-RUN curl -L -o /tmp/memcached.tar.gz "https://github.com/php-memcached-dev/php-memcached/archive/php7.tar.gz" \
-    && mkdir -p /usr/src/php/ext/memcached \
-    && tar -C /usr/src/php/ext/memcached -zxvf /tmp/memcached.tar.gz --strip 1 \
-    && docker-php-ext-configure memcached \
-    && docker-php-ext-install memcached \
-    && rm /tmp/memcached.tar.gz
+
+RUN apt-get install -y libmemcached-dev \
+ && cd /tmp \
+ && git clone -b php7 https://github.com/php-memcached-dev/php-memcached.git \
+ && cd php-memcached \
+ && phpize \
+ && ./configure \
+ && make \
+ && echo "extension=/tmp/php-memcached/modules/memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
+
+
 
 RUN php -m | grep memcache
 
