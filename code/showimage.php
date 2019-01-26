@@ -41,7 +41,7 @@ if ($link){
     // cache for 10 minutes
          			         if ( $memcache ){
 #                                            error_log("doing memcache set for $key");
-					    $memcache->set($key, $picture_of_user,0,6000);
+					    $memcache->set($key, $picture_of_user,600);
 				         }
 			}
 		#	$result = mysqli_query($link, "select picture from user where userID = $user");

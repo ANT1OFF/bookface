@@ -66,7 +66,7 @@
     	   }
 	   // cache for 10 minutes
 	       if ( isset($memcache) and $memcache ){
-	       $memcache->set("user_list_for_front_page", $user_list_for_front_page,0,600);
+	       $memcache->set("user_list_for_front_page", $user_list_for_front_page,600);
 	       }
       }
        echo "<table class=row >\n";

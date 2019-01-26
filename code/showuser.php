@@ -90,7 +90,7 @@
     					}
     // cache for 10 minutes
     			if ( $memcache ){
-					$memcache->set($key, $comments_on_post,0,600);
+					$memcache->set($key, $comments_on_post,600);
 				}
 			}
 
