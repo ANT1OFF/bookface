@@ -18,7 +18,7 @@ $link = mysqli_connect("$dbhost:$dbport", $dbuser,$dbpassw );
 
 			if ( isset($memcache_enabled) and $memcache_enabled == 1 and ! $memcache_override ){
 		#		echo "<! Memcache is enabled !>";
-			    $memcache = new Memcache();
+			    $memcache = new Memcached();
 			    $memcache->addServer ( $memcache_server,"11211" );
 			}
 			$result = mysqli_query($link, "select posts from user where userID = $user");
