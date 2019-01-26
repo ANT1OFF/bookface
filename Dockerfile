@@ -7,6 +7,10 @@ RUN apt-get update && \
     apt-get install -y \
         zlib1g-dev
 
+RUN apt-get update && \
+    apt-get install -y \
+        git
+
 
 RUN apt-get install -y libmemcached-dev \
  && cd /tmp \
