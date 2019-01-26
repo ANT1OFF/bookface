@@ -20,11 +20,11 @@ if ($link){
 #			$memcache = 0;
 			if ( $memcache_enabled == 1 and ! $memcache_override ){
 			#	echo "Memcache is enabled";
-				$memcache = new Memcache();
+				$memcache = new Memcached();
     			$memcache->addServer ( $memcache_server,"11211" );
 			}
 #			echo "Correct database found<br>\n";
-			
+
 			$key = "picture_of_" . $user;
 			if ( $memcache ){
 #                                error_log("Running memcahce get for $key");
@@ -50,11 +50,10 @@ if ($link){
 			foreach ( $picture_of_user as $res ){
 				echo $res['picture'];
 
-				
+
 			}
-			
+
 		}
 }
 
 ?>
-

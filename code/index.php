@@ -30,7 +30,7 @@
 
        if ( isset($memcache_enabled) and $memcache_enabled == 1 and ! $memcache_override ){
 	   echo "<! Memcache is enabled !>";
-	   $memcache = new Memcache();
+	   $memcache = new Memcached();
 	   $memcache->addServer ( $memcache_server,"11211" );
        }
 
