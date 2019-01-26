@@ -3,23 +3,27 @@ FROM php:apache
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get update && \
-    apt-get install -y \
-        zlib1g-dev
 
-RUN apt-get update && \
-    apt-get install -y \
-        git
-
-
-RUN apt-get install -y libmemcached-dev \
- && cd /tmp \
- && git clone -b php7 https://github.com/php-memcached-dev/php-memcached.git \
- && cd php-memcached \
- && phpize \
- && ./configure \
- && make \
- && echo "extension=/tmp/php-memcached/modules/memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
+RUN apt-get update \
+        && buildDeps=" \
+                git \
+                libmemcached-dev \
+                zlib1g-dev \
+        " \
+        && doNotUninstall=" \
+                libmemcached11 \
+                libmemcachedutil2 \
+        " \
+        && apt-get install -y $buildDeps --no-install-recommends \
+        && rm -r /var/lib/apt/lists/* \
+        \
+        && docker-php-source extract \
+        && git clone --branch php7 https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached/ \
+        && docker-php-ext-install memcached \
+        \
+        && docker-php-source delete \
+        && apt-mark manual $doNotUninstall \
+        && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
 
 
 
