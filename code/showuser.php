@@ -63,7 +63,7 @@
     			}
     // cache for 10 minutes
     			if ( $memcache ){
-					$memcache->set("posts_by_$user", $posts_by_user,0,600);
+					$memcache->set("posts_by_$user", $posts_by_user,600);
 				}
 			}
 
