@@ -6,6 +6,11 @@ RUN apt-get -y upgrade
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev
+
+
 RUN pecl install memcached \
     && docker-php-ext-enable memcached
 
