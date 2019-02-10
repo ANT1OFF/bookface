@@ -1,6 +1,7 @@
 <?php
 $dbhost = getenv("DB_SERVER");
 $dbport = "3306";
+$frontpage_limit = "500";
 $db = "bookface";
 $dbuser = "bookfaceuser";
 $dbpassw = 'erlend';
